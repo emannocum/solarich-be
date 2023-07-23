@@ -12,6 +12,7 @@ app.use(loggerMiddleware);
 //routes
 const quoteRoutes = require('./routes/quoteRoutes');
 
+
 // Use the routes here
 app.use('/', quoteRoutes);
 

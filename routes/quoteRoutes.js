@@ -2,11 +2,11 @@
  * @swagger
  * /quote:
  *   get:
- *     summary: Get example data
- *     description: Get example data from the server
+ *     summary: Get Quotes
+ *     description: Get quotes from the server
  *     responses:
  *       200:
- *         description: Success response with example data
+ *         description: Success
  *         content:
  *           application/json:
  *             schema:
