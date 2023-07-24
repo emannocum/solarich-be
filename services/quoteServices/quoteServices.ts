@@ -1,6 +1,5 @@
-
-export const generateQuote = () =>{
-    const quote = "Hello thank you for suscribing to our services in solarich"
+export function generateQuote () : string {
+    const quote : string = "Hello thank you for suscribing to our services in solarich"
 
     return quote;
 }
