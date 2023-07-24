@@ -1,10 +1,8 @@
-// swagger.js
-
-const swaggerJsdoc = require('swagger-jsdoc');
+import swaggerJsdoc = require('swagger-jsdoc');
 
 const options = {
   swaggerDefinition: {
-    openapi: '3.0.0',
+    swagger: '2.0', // Specify the version as '2.0'
     info: {
       title: 'Solarich-BE Swagger',
       version: '1.0.0',
@@ -16,7 +14,7 @@ const options = {
       },
     ],
   },
-  apis: ['./routes/*.js'], // Path to the API routes folder
+  apis: ['./routes/*.ts'], // Path to the API routes folder
 };
 
 const specs = swaggerJsdoc(options);

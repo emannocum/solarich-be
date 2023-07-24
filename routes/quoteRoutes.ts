@@ -18,10 +18,10 @@
  *         description: Internal server error
  */
 
-import express from 'express';
-const router = express.Router();
-const quoteController = require('../controllers/quoteControllers/quoteController')
+import { Router } from 'express';
+import {getQuote} from '../controllers/quoteControllers/quoteController'
 
-router.get('/quote', quoteController.getQuote);
+const router = Router();
+router.get('/quote', getQuote);
 
 module.exports = router;
