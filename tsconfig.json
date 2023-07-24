@@ -1,16 +1,27 @@
 {
-    "compilerOptions": {
-      "target": "es6",
-      "module": "es6",
-      "outDir": "dist",
-      "strict": true,
-      "allowSyntheticDefaultImports": true
-    },
-    "include": [
-      "**/*.ts"
-    ],
-    "exclude": [
-      "node_modules"
-    ]
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "outDir": "dist/types",
+    "strict": true,
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": true, // Update to true for better type safety
+    "noImplicitAny": true, // Update to true for better type safety
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false
+  },
+  "include": [
+    "**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
-  

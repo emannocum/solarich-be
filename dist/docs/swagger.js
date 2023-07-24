@@ -1,5 +1,4 @@
 "use strict";
-// swagger.js
 const swaggerJsdoc = require('swagger-jsdoc');
 const options = {
     swaggerDefinition: {
@@ -11,11 +10,12 @@ const options = {
         },
         servers: [
             {
-                url: 'http://localhost:3000', // Update with your server URL
+                url: 'http://localhost:3000',
             },
         ],
     },
-    apis: ['./routes/*.js'], // Path to the API routes folder
+    apis: ['./routes/*.js'],
 };
 const specs = swaggerJsdoc(options);
 module.exports = specs;
+//# sourceMappingURL=swagger.js.map

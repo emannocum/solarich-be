@@ -1,8 +1,12 @@
-import express from 'express';
-const app = express();
+import { EventEmitter } from 'events';
+EventEmitter.defaultMaxListeners = 15;
+
+const express = require('express');
+
 const swaggerUi = require('swagger-ui-express');
 const setupSwagger = require('./docs/swagger');
 
+const app = express();
 //middlewares
 const LoggerMiddleware = require('./middleware/loggerMiddleware/loggerMiddleware');
 
@@ -28,3 +32,5 @@ app.listen(port, () => {
   console.log(`App is listening on port ${port}`);
   console.log(`Visit http://localhost:${port}/api for available api`)
 });
+
+export default app; // Export the express instance
