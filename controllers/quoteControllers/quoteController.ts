@@ -1,10 +1,11 @@
+import {Request, Response} from 'express';
 const quoteServices = require('../../services/quoteServices/quoteServices')
 
-exports.getQuote = (req, res) => {
+exports.getQuote = (request : Request, response : Response) => {
     
     //services needed
     const quote = quoteServices.generateQuote()
 
 
-    res.send(quote);
+    response.send(quote);
 };

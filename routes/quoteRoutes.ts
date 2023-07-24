@@ -18,7 +18,7 @@
  *         description: Internal server error
  */
 
-const express = require('express');
+import express from 'express'
 const router = express.Router();
 const quoteController = require('../controllers/quoteControllers/quoteController')
 

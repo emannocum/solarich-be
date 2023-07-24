@@ -1,13 +1,13 @@
-const express = require('express');
+import express from 'express';
 const app = express();
 const swaggerUi = require('swagger-ui-express');
 const setupSwagger = require('./docs/swagger');
 
 //middlewares
-const loggerMiddleware = require('./middleware/loggerMiddleware/loggerMiddleware');
+const LoggerMiddleware = require('./middleware/loggerMiddleware/loggerMiddleware');
 
 // Using the middleware logger for all the request received
-app.use(loggerMiddleware);
+app.use(LoggerMiddleware);
 
 //routes
 const quoteRoutes = require('./routes/quoteRoutes');
