@@ -1,14 +1,27 @@
 const nodemailer = require('nodemailer')
 
-export function senQuoteUsingEmail(username: string, password: string, host: string, port: number, receiver: string, subject: string, text: string,) : boolean{
+
+export interface IEmailRequest {
+  username: string, 
+  password: string, 
+  host: string, 
+  port: number, 
+  receiver: string, 
+  subject: string,
+  text: string,
+  
+}
+
+
+export function senQuoteUsingEmail(emailRequest : IEmailRequest) : boolean{
 const transporter = nodemailer.createTransport({
-    host: host,
-    port: port,
+    host: emailRequest.host,
+    port: emailRequest.port,
     secure: true,
     auth: {
       // TODO: replace `user` and `pass` values from <https://forwardemail.net>
-      user: username,
-      pass: password
+      user: emailRequest.username,
+      pass: emailRequest.password
     }
   });
   
@@ -17,10 +30,10 @@ const transporter = nodemailer.createTransport({
     async function main() {
         // send mail with defined transport object
         const info = await transporter.sendMail({
-          from: username, // sender address
-          to: receiver, // list of receivers
-          subject: subject, // Subject line
-          text: text, // plain text body
+          from: emailRequest.username, // sender address
+          to: emailRequest.receiver, // list of receivers
+          subject: emailRequest.subject, // Subject line
+          text: emailRequest.text, // plain text body
           html: "<b>Hello world?</b>", // html body
         });
       
