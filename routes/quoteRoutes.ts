@@ -1,46 +1,39 @@
 /**
  * @swagger
+ * tags:
+ *   name: quotes
+ *   description: The quotes managing API
  * /quotes:
  *   get:
- *     summary: Get Quotes
- *     description: Get quotes from the server
+ *     summary: Lists all the quotes
+ *     tags: [quotes]
  *     responses:
  *       200:
- *         description: Success
+ *         description: The list of the quotes
  *         content:
  *           application/json:
  *             schema:
  *               type: object
  *               properties:
  *                 data:
- *                   type: array
- *                   items:
- *                     type: object
- *                     properties:
- *                       quote:
- *                         type: string
- *                     example:
- *                       quote: "This is a quote."
- *       500:
- *         description: Internal server error
+ *                   type: string
+ *                   description: The newly added quote
  *   post:
- *     summary: Add a new Quote
- *     description: Add a new quote to the server
+ *     summary: Create a new quote
+ *     tags: [quotes]
  *     requestBody:
- *       description: Quote object
  *       required: true
  *       content:
  *         application/json:
  *           schema:
  *             type: object
  *             properties:
- *               quote:
+ *               data:
  *                 type: string
- *             example:
- *               quote: "This is a new quote."
+ *                 description: The newly added quote
  *     responses:
  *       200:
- *         description: Created
+ *         description: The created quote.
  *         content:
  *           application/json:
  *             schema:
@@ -50,34 +43,54 @@
  *                   type: string
  *                   description: The newly added quote
  *       500:
- *         description: Internal server error
- * 
+ *         description: Some server error
  * /quotes/{id}:
- *   put:
- *     summary: Update a Quote
- *     description: Update an existing quote in the server
+ *   get:
+ *     summary: Get the quote by id
+ *     tags: [quotes]
  *     parameters:
  *       - in: path
  *         name: id
- *         required: true
  *         schema:
  *           type: string
- *         description: ID of the quote to update
+ *         required: true
+ *         description: The quote id
+ *     responses:
+ *       200:
+ *         description: The quote response by id
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 data:
+ *                   type: string
+ *                   description: The newly added quote
+ *       404:
+ *         description: The quote was not found
+ *   put:
+ *     summary: Update the quote by the id
+ *     tags: [quotes]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The quote id
  *     requestBody:
- *       description: Updated Quote object
  *       required: true
  *       content:
  *         application/json:
  *           schema:
  *             type: object
  *             properties:
- *               quote:
+ *               data:
  *                 type: string
- *             example:
- *               quote: "This is an updated quote."
+ *                 description: The newly added quote
  *     responses:
  *       200:
- *         description: Success
+ *         description: The quote was updated
  *         content:
  *           application/json:
  *             schema:
@@ -85,39 +98,30 @@
  *               properties:
  *                 data:
  *                   type: string
- *                   description: The updated quote
- *       400:
- *         description: Bad Request
+ *                   description: The newly added quote
  *       404:
- *         description: Quote not found
+ *         description: The quote was not found
  *       500:
- *         description: Internal server error
+ *         description: Some error happened
  *   delete:
- *     summary: Delete a Quote
- *     description: Delete an existing quote from the server
+ *     summary: Remove the quote by id
+ *     tags: [quotes]
  *     parameters:
  *       - in: path
  *         name: id
- *         required: true
  *         schema:
  *           type: string
- *         description: ID of the quote to delete
+ *         required: true
+ *         description: The quote id
  *     responses:
  *       200:
- *         description: Success
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 data:
- *                   type: string
- *                   description: The deleted quote
+ *         description: The quote was deleted
  *       404:
- *         description: Quote not found
- *       500:
- *         description: Internal server error
+ *         description: The quote was not found
  */
+
+
+
 
 import { Router } from 'express'
 import {getQuote, sendQuote} from '../controllers/quoteControllers/quoteController'
