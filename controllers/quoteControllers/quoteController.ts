@@ -1,6 +1,6 @@
 import {Request, Response} from 'express';
 import {generateQuote} from '../../services/quoteServices/quoteServices'
-import {senQuoteUsingEmail,IEmailRequest} from '../../services/email/sendQuoteUsingEmail'
+import {sendQuoteUsingEmail,IEmailRequest} from '../../services/email/sendQuoteUsingEmail'
 
 export const getQuote = (request : Request, response : Response) => {
     
@@ -17,12 +17,8 @@ export const sendQuote = (request: Request, response: Response) =>{
 
     console.log(requestBody)
 try{
-    
-    const emailWasSend : boolean = false
-   
-    console.log(senQuoteUsingEmail(requestBody))
 
-    if(emailWasSend){
+    if(sendQuoteUsingEmail(requestBody)){
         response.send("sent succesfully")
     }else{
         response.send("send failed")
