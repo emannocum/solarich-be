@@ -1,6 +1,6 @@
 
 
-export function emailTemplate(){
+export function emailTemplate() : string {
     return(`<!DOCTYPE html>
     <html>
     <head>
