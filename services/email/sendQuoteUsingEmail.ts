@@ -21,8 +21,8 @@ export function sendQuoteUsingEmail(emailRequest : IEmailRequest) : boolean{
       secure: true,
       auth: {
         // TODO: replace `user` and `pass` values from <https://forwardemail.net>
-        user: 'nocumadoxx@gmail.com',
-        pass: 'uxjqiirznctwhvlh'
+        user: process.env.EMAIL_USERNAME,
+        pass: process.env.EMAIL_PASSWORD
       }
     });
 

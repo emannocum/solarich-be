@@ -1,13 +1,15 @@
 import { EventEmitter } from 'events';
 EventEmitter.defaultMaxListeners = 15;
 
+const dotenv = require('dotenv');
 const express = require('express');
 const swaggerUi = require('swagger-ui-express');
 const setupSwagger = require('./docs/swagger');
 const bodyParser = require('body-parser')
 const app = express();
 
-
+//load dotenv
+dotenv.config();
 
 //middlewares
 const LoggerMiddleware = require('./middleware/loggerMiddleware/loggerMiddleware');
@@ -32,7 +34,7 @@ const swaggerSpecs = setupSwagger;
 app.use('/api', swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
 
 // set the port
-const port = 3000;
+const port = process.env.PORT;
 
 // check where the port we are listening
 app.listen(port, () => {
