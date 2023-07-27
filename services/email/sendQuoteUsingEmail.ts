@@ -1,5 +1,5 @@
 const nodemailer = require('nodemailer')
-
+import { emailTemplate } from "./emailTemplate";
 
 export interface IEmailRequest {
   email: string
@@ -33,7 +33,7 @@ export function sendQuoteUsingEmail(emailRequest : IEmailRequest) : boolean{
           to: emailRequest.receiver, // list of receivers
           subject: emailRequest.subject, // Subject line
           text: emailRequest.text, // plain text body
-          html: "<b>Hello world?</b>", // html body
+          html: emailTemplate(), // html body
         });
       
         console.log("Message sent: %s", info.messageId);
