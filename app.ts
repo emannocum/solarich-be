@@ -8,11 +8,13 @@ const setupSwagger = require('./docs/swagger');
 const bodyParser = require('body-parser')
 const app = express();
 
-//load dotenv
-dotenv.config();
+
 
 //middlewares
 const LoggerMiddleware = require('./middleware/loggerMiddleware/loggerMiddleware');
+
+//load dotenv
+dotenv.config();
 
 
 // body-parser middleware to parse request bodies
