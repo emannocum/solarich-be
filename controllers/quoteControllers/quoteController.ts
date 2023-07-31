@@ -19,9 +19,9 @@ export const sendQuote = (request: Request, response: Response) =>{
     try{
 
         if(sendQuoteUsingEmail(requestBody)){
-            response.send("sent succesfully")
+            response.json({"responseStatus": "send succesfully"});
         }else{
-            response.send("send failed")
+            response.status(500).json({"responseStatus": "send failed"});
         }
     }catch(Exception){
         response.status(500).json({ data: 'Internal Server Error: '+Exception, });
