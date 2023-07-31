@@ -7,7 +7,7 @@ export const getQuote = (request : Request, response : Response) => {
     //services needed
     const quote = generateQuote()
 
-
+    const data = {"response": quote}
     response.send(quote);
 };
 
