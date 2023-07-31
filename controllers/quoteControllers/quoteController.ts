@@ -8,7 +8,7 @@ export const getQuote = (request : Request, response : Response) => {
     const quote = generateQuote()
 
     const data = {"response": quote}
-    response.send(data);
+    response.json(data);
 };
 
 export const sendQuote = (request: Request, response: Response) =>{
