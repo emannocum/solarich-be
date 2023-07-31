@@ -8,7 +8,7 @@ export const getQuote = (request : Request, response : Response) => {
     const quote = generateQuote()
 
     const data = {"response": quote}
-    response.send(quote);
+    response.send(data);
 };
 
 export const sendQuote = (request: Request, response: Response) =>{
@@ -16,15 +16,15 @@ export const sendQuote = (request: Request, response: Response) =>{
     const requestBody : IEmailRequest = request.body;
 
     console.log(requestBody)
-try{
+    try{
 
-    if(sendQuoteUsingEmail(requestBody)){
-        response.send("sent succesfully")
-    }else{
-        response.send("send failed")
+        if(sendQuoteUsingEmail(requestBody)){
+            response.send("sent succesfully")
+        }else{
+            response.send("send failed")
+        }
+    }catch(Exception){
+        response.status(500).json({ data: 'Internal Server Error: '+Exception, });
     }
-}catch(Exception){
-    response.status(500).json({ data: 'Internal Server Error: '+Exception, });
-}
 
 } 
