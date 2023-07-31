@@ -37,12 +37,13 @@ const swaggerSpecs = setupSwagger;
 app.use('/api', swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
 
 // set the port
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 // check where the port we are listening
 app.listen(port, () => {
   console.log(`App is listening on port ${port}`);
   console.log(`Visit http://localhost:${port}/api for available api`)
+  console.log(`In liveserver it was running on ${process.env.BASE_URL}`)
 });
 
 export default app; // Export the express instance
