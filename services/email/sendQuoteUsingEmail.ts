@@ -2,7 +2,6 @@ const nodemailer = require('nodemailer')
 import { emailTemplate } from "./emailTemplate";
 
 export interface IEmailRequest {
-  email: string
   receiver: string, 
   subject: string,
   text: string,
@@ -29,7 +28,7 @@ export function sendQuoteUsingEmail(emailRequest : IEmailRequest) : boolean{
     async function main() {
         // send mail with defined transport object
         const info = await transporter.sendMail({
-          from: emailRequest.email, // sender address
+          from: process.env.EMAIL_USERNAME, // sender address
           to: emailRequest.receiver, // list of receivers
           subject: emailRequest.subject, // Subject line
           text: emailRequest.text, // plain text body
