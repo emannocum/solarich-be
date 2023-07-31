@@ -49,17 +49,21 @@ export function emailTemplate() : string {
           .logo {
             max-width: 150px;
           }
-          .social-media-logos img {
-            max-width: 30px;
+          .social-media-logos a {
+            display: inline-block;
             margin-left: 10px;
+          }
+          .social-media-logos svg {
+            width: 30px;
+            height: 30px;
           }
         </style>
       </head>
       <body>
         <div class="container">
-          <!-- Sample Placeholder Image -->
+          <!-- Your Banner Image -->
           <img
-            src="https://via.placeholder.com/600x200"
+            src="https://res.cloudinary.com/dh3m4os9t/image/upload/v1690784108/solarich-email-template/logo-name-only_ba5r6o.png"
             alt="Business Name Banner"
             class="banner"
           />
@@ -100,24 +104,51 @@ export function emailTemplate() : string {
           <div class="footer">
             <!-- Sample Business Logo -->
             <img
-              src="https://via.placeholder.com/150x50"
+              src="https://res.cloudinary.com/dh3m4os9t/image/upload/v1690784114/solarich-email-template/website-logo-solarich_f6c08s.png"
               alt="Business Logo"
               class="logo"
             />
             <div class="social-media-logos">
-              <!-- Sample Social Media Logos (Replace with actual social media icons and links) -->
-              <img
-                src="https://via.placeholder.com/30x30"
-                alt="Social Media Icon 1"
-              />
-              <img
-                src="https://via.placeholder.com/30x30"
-                alt="Social Media Icon 2"
-              />
-              <img
-                src="https://via.placeholder.com/30x30"
-                alt="Social Media Icon 3"
-              />
+              <!-- Facebook Icon -->
+              <a href="https://www.facebook.com/your_facebook_page_link">
+                <!-- https://feathericons.dev/?search=facebook&iconset=feather -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                  class="main-grid-item-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                  />
+                </svg>
+              </a>
+              <!-- Instagram Icon -->
+              <a href="https://www.instagram.com/your_instagram_page_link">
+                <!-- https://feathericons.dev/?search=instagram&iconset=feather -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                  class="main-grid-item-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                >
+                  <rect height="20" rx="5" ry="5" width="20" x="2" y="2" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                </svg>
+              </a>
             </div>
           </div>
           <div class="footer">

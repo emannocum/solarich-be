@@ -12,7 +12,7 @@ const app = express();
 
 //middlewares
 const LoggerMiddleware = require('./middleware/loggerMiddleware/loggerMiddleware');
-
+const corseMiddleware =  require('./middleware/corsMiddleware/corsMiddleware')
 
 //load dotenv
 dotenv.config();
@@ -23,6 +23,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // Using the middleware logger for all the request received
 app.use(LoggerMiddleware);
+// Use the middleware by passing 'app' as an argument to the function
+corseMiddleware(app);
 
 
 //routes
