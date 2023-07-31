@@ -1,5 +1,5 @@
 const nodemailer = require('nodemailer')
-import { emailTemplate } from "./emailTemplate";
+import { emailMessageOfClientTemplate } from "./emailMessageOfClientTemplate";
 
 
 // const data = {
@@ -19,7 +19,7 @@ export interface IEmailRequest {
 }
 
 
-export function sendQuoteUsingEmail(emailRequest : IEmailRequest) : boolean{
+export function sendMessageOfClientUsingEmail(emailRequest : IEmailRequest) : boolean{
 
   
   // async..await is not allowed in global scope, must use a wrapper
@@ -43,7 +43,7 @@ export function sendQuoteUsingEmail(emailRequest : IEmailRequest) : boolean{
           to: emailRequest.receiver, // list of receivers
           subject: emailRequest.subject, // Subject line
           text: emailRequest.text, // plain text body
-          html: emailTemplate(emailRequest), // html body
+          html: emailMessageOfClientTemplate(emailRequest), // html body
         });
       
         console.log("Message sent: %s", info.messageId);

@@ -1,6 +1,7 @@
+import  {IEmailRequest} from './sendQuoteUsingEmail'
 
 
-export function emailTemplate() : string {
+export function emailTemplate(data: IEmailRequest) : string {
     return(`<!DOCTYPE html>
     <html>
       <head>
@@ -67,7 +68,7 @@ export function emailTemplate() : string {
             alt="Business Name Banner"
             class="banner"
           />
-          <div class="header">Hello Joe Grayson,</div>
+          <div class="header">Hello `+data.name+`,</div>
           <div class="message">
             We received your request for a solar quote! We are excited to work with
             you and help you save some money.
