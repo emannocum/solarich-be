@@ -132,8 +132,8 @@ router.get('/quotes', getQuote)
 
 router.post('/quotes', sendQuote)
 
-router.put('/quotes/{id}', () =>{ return false})
+// router.put('/quotes/{id}', () =>{ return false})
 
-router.delete('/quotes/{id}', () =>{return false})
+// router.delete('/quotes/{id}', () =>{return false})
 
 module.exports = router;
