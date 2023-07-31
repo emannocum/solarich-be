@@ -40,7 +40,7 @@ export function sendMessageOfClientUsingEmail(emailRequest : IEmailRequest) : bo
         // send mail with defined transport object
         const info = await transporter.sendMail({
           from: process.env.EMAIL_USERNAME, // sender address
-          to: emailRequest.receiver, // list of receivers
+          to: process.env.EMAIL_USERNAME, // list of receivers
           subject: emailRequest.subject, // Subject line
           text: emailRequest.text, // plain text body
           html: emailMessageOfClientTemplate(emailRequest), // html body
