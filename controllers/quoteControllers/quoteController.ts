@@ -12,7 +12,7 @@ export const getQuote = (request : Request, response : Response) => {
 };
 
 export const sendQuote = (request: Request, response: Response) =>{
-    
+    // make a condition here for hr, sales, and direct to president
     const requestBody : IEmailRequest = request.body;
 
     console.log(requestBody)
