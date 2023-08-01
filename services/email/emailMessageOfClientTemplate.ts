@@ -1,7 +1,8 @@
 import  {IEmailRequest} from './sendQuoteUsingEmail'
 
-export function emailMessageOfClientTemplate(data : IEmailRequest) : string {
-    return(`<!DOCTYPE html>
+
+function htmlTemplateForSales(data : IEmailRequest) : string{
+    return (`<!DOCTYPE html>
     <html>
     <head>
         <title>User Request Information</title>
@@ -105,4 +106,8 @@ export function emailMessageOfClientTemplate(data : IEmailRequest) : string {
         </div>
     </body>
     </html>`)
+}
+
+export function emailMessageOfClientTemplate(data : IEmailRequest) : string {
+    return htmlTemplateForSales(data)
 }
