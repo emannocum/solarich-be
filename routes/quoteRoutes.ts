@@ -126,11 +126,12 @@
 import { Router } from 'express'
 import {getQuote, sendQuote} from '../controllers/quoteControllers/quoteController'
 
+import {rateLimitMiddleware} from '../middleware/rateLimitMiddleware/rateLimitMiddleware'
 const router = Router()
 
-router.get('/quotes', getQuote)
+router.get('/quotes',rateLimitMiddleware, getQuote)
 
-router.post('/quotes', sendQuote)
+router.post('/quotes',rateLimitMiddleware, sendQuote)
 
 // router.put('/quotes/{id}', () =>{ return false})
 

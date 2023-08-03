@@ -2,6 +2,8 @@ import {Request, Response} from 'express';
 import {generateQuote} from '../../services/quoteServices/quoteServices'
 import {sendQuoteUsingEmail,IEmailRequest} from '../../services/email/sendQuoteUsingEmail'
 import {sendMessageOfClientUsingEmail} from '../../services/email/sendMessageOfClientUsingEmail'
+
+
 export const getQuote = (request : Request, response : Response) => {
     
     //services needed
