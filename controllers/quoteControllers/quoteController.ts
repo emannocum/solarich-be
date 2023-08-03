@@ -22,16 +22,16 @@ export const sendQuote = (request: Request, response: Response) =>{
 
         if(sendQuoteUsingEmail(requestBody)){
             if(sendMessageOfClientUsingEmail(requestBody)){
-                response.json({"responseMessage": "send succesfully"});
+                response.json({response: "send succesfully"});
             }else{
-                response.status(500).json({"responseMessage": "send failed"});
+                response.status(500).json({error: "send failed"});
             }
            
         }else{
-            response.status(500).json({"responseMessage": "send failed"});
+            response.status(500).json({error: "send failed"});
         }
     }catch(Exception){
-        response.status(500).json({ "responseMessage": 'Internal Server Error: '+Exception, });
+        response.status(500).json({ error: 'Internal Server Error: '+Exception, });
     }
 
 } 
