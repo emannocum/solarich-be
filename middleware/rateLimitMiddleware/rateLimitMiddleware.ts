@@ -3,7 +3,7 @@ import {Request, Response, NextFunction } from 'express';
 // Store the user usage limit (you can use a database for more persistent storage)
 const userLimits = new Map();
 
-const rateLimitMiddleware = (req : Request, res : Response, next : NextFunction) => {
+export const rateLimitMiddleware = (req : Request, res : Response, next : NextFunction) => {
   const { user } = req.body;
 
   if (!user) {
@@ -20,4 +20,4 @@ const rateLimitMiddleware = (req : Request, res : Response, next : NextFunction)
   next();
 };
 
-module.exports = rateLimitMiddleware;
+
