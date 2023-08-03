@@ -5,7 +5,7 @@ const userLimits = new Map();
 
 export const rateLimitMiddleware = (req : Request, res : Response, next : NextFunction) => {
   const { user } = req.body;
-  console.log(user)
+  console.log(req.body)
   if (!user) {
     return res.status(400).json({ error: 'User information not provided.' });
   }
