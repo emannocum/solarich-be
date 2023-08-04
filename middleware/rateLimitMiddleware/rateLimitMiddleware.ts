@@ -31,9 +31,9 @@ export const rateLimitMiddleware = (req: Request, res: Response, next: NextFunct
     const waitTimeInSeconds = Math.ceil((firstRequestTime + 3600000 - currentTime) / 1000);
 
     // Calculate wait time in hours and minutes
-    const waitTimeInHours = Math.floor(waitTimeInSeconds / 3600);
-    const remainingSeconds = waitTimeInSeconds % 3600;
-    const waitTimeInMinutes = Math.floor(remainingSeconds / 60);
+    const waitTimeInHours : number = Math.floor(waitTimeInSeconds / 3600);
+    const remainingSeconds : number = waitTimeInSeconds % 3600;
+    const waitTimeInMinutes : number = Math.floor(remainingSeconds / 60);
 
     return res.status(429).json({
       error: 'Too many requests. Please try again later.',
